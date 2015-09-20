@@ -3,11 +3,12 @@ layout: post
 title: "Generate 'Table of Contents'"
 date: 2015-09-18 20:00:32 +0000
 comments: true
+toc: true
+tocstartlv: 3
 categories:
 - octopress
 - jquery plug-in
-toc: true
-tocstartlv: 3
+
 ---
 
 After I got Octopress setup, I found there is no easy way to generate the table of contents of my blog,
@@ -17,6 +18,8 @@ always generates table of contents from H1, so I decidied to do it by using the 
 ###Download Table of Contents jQuery Plugins
 Download at http://fuelyourcoding.com/scripts/toc/ and put jquery.tableofcontents.min.js in your source/javascripts
 directory.
+
+<!--more-->
 
 ###Create tocgenerator.js
 Create a tocgenerator.js under source/javascripts with below content:
@@ -39,7 +42,7 @@ function generateTOC(insertBefore, heading, startLv) {
 ```
 
 ###Reference the javascript files in your blog
-Add blow lines at the bottom of source/custom/head.html
+Add blow lines at the bottom of source/_include/custom/head.html
 
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -53,7 +56,7 @@ Add blow lines at the bottom of source/custom/head.html
 ```
 
 ###Add below lines
-Add below lines to the source/custom/footer.html
+Add below lines to the source/include/custom/footer.html
 ```html
 {% if index %}
   {% comment %}
@@ -81,5 +84,17 @@ Add below lines to the source/custom/footer.html
 
 {% endif %}
 ```
-
+###Add below highlighted lines to the post
+```yaml mark:7,8
+---
+layout: post
+title: "Hello World!!!"
+date: 2015-09-18 06:00:21 +0000
+comments: true
+author: gudu
+toc: true
+tocstartlv: 3
+categories:
+- octopress
+```
 
